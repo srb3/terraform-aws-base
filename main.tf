@@ -6,7 +6,7 @@ resource "random_id" "hash" {
 
 module "ami" {
   source  = "srb3/ami/aws"
-  version = "0.0.1"
+  version = "0.13.0"
   os_name = var.vm_os_name
 }
 
@@ -44,7 +44,7 @@ locals {
 
 module "vpc" {
   source             = "srb3/vpc/aws"
-  version            = "0.0.3"
+  version            = "0.13.0"
   create_vpc         = local.create_vpc
   name               = local.vpc_name
   cidr               = var.vpc_cidr
@@ -57,7 +57,7 @@ module "vpc" {
 
 module "security_group" {
   source                   = "srb3/security-group/aws"
-  version                  = "0.0.1"
+  version                  = "0.13.0"
   create                   = local.create_sg
   name                     = local.sec_grp_name
   description              = var.security_group_description
@@ -71,7 +71,7 @@ module "security_group" {
 
 module "instance" {
   source                      = "srb3/vm/aws"
-  version                     = "0.0.1"
+  version                     = "0.13.0"
   name                        = local.vm_name
   ami                         = local.ami_id
   instance_count              = local.instance_count
